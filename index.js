@@ -26,7 +26,7 @@ const initialPrompt = [
 ];
 
 // new team array
-const newTeam = [
+const newTeamQuestions = [
     {
         type: "input",
         name: "name",
@@ -103,12 +103,12 @@ const employeeType = [
         type: "list",
         name: "employeeType",
         message: "What type of employee are you adding?",
-        choices: ["Engineer", "Intern", "No More"]
+        choices: ["Engineer", "Intern", "No more employees, create my team profile"]
     }
 ];
 
 // new employee function
-function newEmployee(){
+function newEmployee() {
     inquirer
     .prompt(employeeType)
     .then((response) => {
@@ -123,7 +123,7 @@ function newEmployee(){
 }
 
 // creates a new Engineer
-function newEngineer(){
+function newEngineer() {
     inquirer
     .prompt(engineerQuestions)
     .then((response) => {
@@ -134,7 +134,7 @@ function newEngineer(){
 };
 
 // creates a new intern
-function newIntern(){
+function newIntern() {
     inquirer
     .prompt(internQuestions)
     .then((response) => {
@@ -144,9 +144,26 @@ function newIntern(){
     })
 };
 
-// TODO: create newTeam function
+// create new Team function
+function newTeam() {
+    inquirer
+    .prompt(newTeamQuestions)
+    .then((response) => {
+        const manager = new Manager(response.name, response.id, response.email, response.officeNumber)
+        teamArray.push(manager)
+        newEmployee();
+    })
+}
 
-// TODO: create fs function
+// fs function
+function generateTeam() {
+    let body = "";
+    teamArray.forEach(e => {
+        const card = new generateHTML.Card(e.getName(), e.getRole(), e.getId(), e.getEmail(), Object.entries(e)[3][0], Object.entries(e)[3][1]);
+        body = body.concat(card.getBody());
+    });
+    fs.writeFile(`dist/newTeam.html`, generateHTML.head.concat(body.concat(generateHTML.foot)))
+};
 
 // initialize function
 function init() {
