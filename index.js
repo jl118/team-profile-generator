@@ -101,7 +101,7 @@ const internQuestions = [
 const employeeType = [
     {
         type: "list",
-        name: "employeeType",
+        name: "empType",
         message: "What type of employee are you adding?",
         choices: ["Engineer", "Intern", "No more employees, create my team profile"]
     }
@@ -112,12 +112,14 @@ function newEmployee() {
     inquirer
     .prompt(employeeType)
     .then((response) => {
-        if(response.employeeType == "Engineer"){
+        if(response.empType == "Engineer"){
             newEngineer();
-        } else if(response.employeeType == "Intern"){
+        } else if(response.empType == "Intern"){
             newIntern();
         } else {
-            generateTeam();
+            console.log(teamArray);
+            console.log("Generating Team Profile HTML...")
+            generateTeamHTML();
         }
     })
 }
@@ -156,13 +158,13 @@ function newTeam() {
 }
 
 // fs function
-function generateTeam() {
+function generateTeamHTML() {
     let body = "";
-    teamArray.forEach(e => {
-        const card = new generateHTML.Card(e.getName(), e.getRole(), e.getId(), e.getEmail(), Object.entries(e)[3][0], Object.entries(e)[3][1]);
+    teamArray.forEach(element => {
+        const card = new generateHTML.Card(element.getName(), element.getRole(), element.getId(), element.getEmail(), Object.entries(element)[3][0], Object.entries(element)[3][1]);
         body = body.concat(card.getBody());
     });
-    fs.writeFile(`dist/newTeam.html`, generateHTML.head.concat(body.concat(generateHTML.foot)))
+    fs.writeFile(`dist/newTeam.html`, generateHTML.HTMLhead.concat(body.concat(generateHTML.HTMLfoot)))
 };
 
 // initialize function
@@ -170,13 +172,15 @@ function init() {
     inquirer
     .prompt(initialPrompt)
     .then((response) => {
-        if(response.initialChoices == "Add New Team"){
+        if(response.initialChoices === "Add New Team"){
+            console.log("-- Creating New Team --");
             newTeam();
         }else{
+            console.log("Exiting Team Generator...");
             return;
         }
     })
 };
 
-// TODO: add init();
+init();
 
