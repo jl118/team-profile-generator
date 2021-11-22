@@ -25,14 +25,16 @@ const HTMLhead = `
 class Card {
     constructor(name, role, id, email, other, value) {
     
-    this.body =`<ul class="list-group shadow m-2">
-    <li class="list-group-item active" aria-current="true">${name}<br>${role}</li>
-    <div class="p-4 bg-purple-600 bg-gradient">
-    <li class="list-group-item">ID: ${id}</li>
-    <li class="list-group-item">Email: ${email}</li>
-    <li class="list-group-item">${other}: ${value}</li>
-    </div>
-    </ul>`
+    this.body = `
+        <ul class="list-group shadow m-2">
+            <li class="list-group-item active" aria-current="true">${name}<br>${role}</li>
+            <div class="p-4 bg-purple-600 bg-gradient">
+            <li class="list-group-item">ID: ${id}</li>
+            <li class="list-group-item">Email: ${email}</li>
+            <li class="list-group-item">${other}: ${value}</li>
+            </div>
+        </ul>
+    `
     }
 
     getBody() {
