@@ -164,7 +164,10 @@ function generateTeamHTML() {
         const card = new generateHTML.Card(element.getName(), element.getRole(), element.getId(), element.getEmail(), Object.entries(element)[3][0], Object.entries(element)[3][1]);
         body = body.concat(card.getBody());
     });
-    fs.writeFile(`dist/newTeam.html`, generateHTML.HTMLhead.concat(body.concat(generateHTML.HTMLfoot)))
+    fs.writeFile(`dist/NewTeam.html`, generateHTML.HTMLhead.concat(body.concat(generateHTML.HTMLfoot)), function(err) {
+        if (err) throw err;
+        console.log("New Team Profile Generated!");
+    })
 };
 
 // initialize function
