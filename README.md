@@ -12,6 +12,7 @@
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
+  * [Preview](#preview)
   * [License](#license)
   * [Tests](#tests)
   * [Questions](#questions)
@@ -25,7 +26,11 @@
   ## Usage 
   
   Once the dependencies are installed, run the command: ```node index.js``` to start the program. Answer each prompt, and once you are finished adding employees, select 'Create my team profile' and your custom HTML will be generated in the ```dist``` folder.
-    
+
+  ## Preview 
+
+  [![Team Profile Generator Demo](./assets/media/team-generator-demo.gif)](https://drive.google.com/file/d/1CcJBoOnBbG-q4yMZJ2hOHfCJa_lJ-2Us/view)
+
   ## License
  
   This project is under the MIT license.
