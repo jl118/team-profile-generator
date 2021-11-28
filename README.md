@@ -8,7 +8,7 @@
   
   ## Description 
   
-  This is a command-line application that generates an HTML document with team members and their information set in easy-to-read cards.
+  This is a command-line application that generates an HTML document with team members and their information set in easy-to-read cards. Additionally, each team member's displayed email doubles as an email link, and the Engineer's GitHub username is a link to their GitHub page. 
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
@@ -24,7 +24,7 @@
   
   ## Usage 
   
-  Once the dependencies are installed, run the command: ```node index.js``` to start the program. Answer each prompt, and once you are finished adding employees, select 'Create my team profile' and your custom HTML will be generated in the dist folder.
+  Once the dependencies are installed, run the command: ```node index.js``` to start the program. Answer each prompt, and once you are finished adding employees, select 'Create my team profile' and your custom HTML will be generated in the ```dist``` folder.
     
   ## License
  
@@ -43,5 +43,5 @@
  
   GitHub: [@jl118](https://api.github.com/users/jl118)
   
-  Email: jen.liebelt@gmail.com
+  Email: [jen.liebelt@gmail.com](mailto:jen.liebelt@gmail.com)
   
